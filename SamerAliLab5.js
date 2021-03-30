@@ -97,7 +97,7 @@
 // const intersection=(x, y)=>{
 //     var a = JSON.stringify(Object.entries(x));
 //     var b = JSON.stringify(Object.entries(y));
-//     let intersection1 = a.filter(x => b.includes(x));
+//     let intersection1 = a.filter(b => b.includes(b));
 //     console.log(intersection1);
 // }
 //  intersection(a,b);
