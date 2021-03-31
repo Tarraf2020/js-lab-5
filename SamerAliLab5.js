@@ -12,19 +12,21 @@
 
 
 // var obj = {a:1};
+// var obj1 = null;
 // var arr = [1,2,3];
 
 // const isPlainObject =(x)=>{
-//     var a = x.constructor.name === "Object";
+//     var a = typeof(x)==='object' && x !== null && !Array.isArray(x);
 //     console.log(a);
 // }
 // isPlainObject(obj);
+// isPlainObject(obj1);
 // isPlainObject(arr);
 
 
 // var obj = { a: 1, c: 'I don’t know' };
 // const modifyObject=(x)=>{
-//     var a = x.constructor.name === "Object";
+//     var a = typeof(x)==='object' && x !== null && !Array.isArray(x);
 //     if(a == true){
 //         x.isObject = true;
 //         x.getPropertiesNb = Object.keys(x).length+1;
@@ -32,6 +34,8 @@
 //     }
 // }
 // modifyObject(obj);
+// modifyObject([1,2]);
+// modifyObject(null);
 
 
 
@@ -47,27 +51,37 @@
 
 // var obj = {
 //     a:'ali',
-//     b:'ali'
+//     b:'shumi',
+//     c:'shumi'
 // };
 
-// const without =(a, b)=>{
-//     delete a.b;
-//     console.log(a);
-// }
-// without(obj, "b");
-
-
-
-// var obj = {
-//     a:'ali',
-//     b:'ali'
+// const without =(a1, ...b1)=>{ 
+//   b1.forEach((element) =>   delete a1[element]);
+//   return a1;
 // };
-// var obj1 = {a:undefined};
-// const isEmpty =(x)=>{
-//     var a = Object.keys(x).length == 0;
-//     console.log(a);
+// console.log(without(obj, "a", "b"));
+
+
+
+// const isEmpty = (obj) => {
+
+//   if (obj === null || Object.keys(obj).length === 0) {
+//       return true;
+//   }
+//   else {
+//       return Object.keys(obj).filter(key => {
+//           if (obj[key] === false || obj[key] === null || obj[key] === undefined) {
+//               return false;
+//           }
+//           return true;
+//       }).length === 0
+
+//   }
 // }
-// isEmpty(obj1);
+// console.log(isEmpty({}));
+// console.log(isEmpty({ a: undefined }));
+// console.log(isEmpty({ a: 1 }));
+// console.log(isEmpty({ a: 1, b: undefined }))
 
 
 
@@ -77,16 +91,13 @@
 // };
 // var obj1 = {
 //     a:'al',
-//     b:'ali'
+//     b:'ali1'
 // };
 // const isEqual =(a, b)=>{
 //     var a = (JSON.stringify(a) === JSON.stringify(b));
 //     console.log(a);
 // }
 // isEqual(obj, obj1);
-
-
-
 
 
 
